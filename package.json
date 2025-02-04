@@ -1,5 +1,5 @@
 {
-  "name": "simple-static-site",
+  "name": "simple-static-site-v2",
   "version": "1.0.0",
   "description": "A simple static site with markdown support",
   "scripts": {

@@ -1,8 +1,8 @@
 ---
-title: Welcome to My Site
+title: Welcome to Simple Static Site V2
 ---
 
-# Welcome to My Static Site
+# Welcome to Simple Static Site V2
 
 This is a simple static site generated from markdown files.
 
