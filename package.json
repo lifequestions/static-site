@@ -4,12 +4,16 @@
   "description": "A simple static site with markdown support",
   "scripts": {
     "start": "node scripts/serve.js",
-    "build": "node scripts/build.js"
+    "build": "node scripts/build.js",
+    "dev": "nodemon scripts/serve.js --watch src --exec 'npm run build && node scripts/serve.js'"
   },
   "dependencies": {
-    "marked": "^4.0.0",
+    "express": "^4.17.1",
     "front-matter": "^4.0.0",
     "fs-extra": "^10.0.0",
-    "express": "^4.17.1"
+    "marked": "^4.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
-} 
+}

@@ -1,16 +1,12 @@
 ---
-title: Welcome
+title: Welcome to Simple Static Site V2
 ---
 
-# Welcome to My Website
+# Welcome to Simple Static Site V2
 
-This is a simple static website built with markdown support.
+This is a simple static site generated from markdown files.
 
-## Latest Blog Posts
-
-- [First Post](/blog/first-post)
-- [Second Post](/blog/second-post)
-
-## Get in Touch
-
-[Contact me](/contact) for more information. 
+## Features
+- Markdown support
+- Front matter for metadata
+- Simple and fast 

@@ -4,7 +4,7 @@ const { marked } = require('marked');
 const frontMatter = require('front-matter');
 
 async function build() {
-    // Clear public directory
+    // Clear docs directory
     await fs.emptyDir('docs');
     
     // Copy static assets if they exist
@@ -12,12 +12,21 @@ async function build() {
         await fs.copy('src/assets', 'docs');
     }
     
-    // Process markdown files
-    const contentDir = 'src/content';
+    // Process files
+    const contentDir = 'src/pages';
     const files = await fs.readdir(contentDir);
     
     for (const file of files) {
-        if (path.extname(file) === '.md') {
+        const ext = path.extname(file);
+        
+        if (ext === '.html') {
+            // Direct copy for HTML files
+            await fs.copy(
+                path.join(contentDir, file),
+                path.join('docs', file)
+            );
+        } else if (ext === '.md') {
+            // Process markdown files
             const content = await fs.readFile(path.join(contentDir, file), 'utf-8');
             const { attributes, body } = frontMatter(content);
             const html = marked(body);
@@ -53,10 +62,10 @@ async function build() {
                 </head>
                 <body>
                     <nav>
-                        <a href="/">Home</a>
-                        <a href="/blog.html">Blog</a>
-                        <a href="/about.html">About</a>
-                        <a href="/faq.html">FAQ</a>
+                        <a href="index.html">Home</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="about.html">About</a>
+                        <a href="faq.html">FAQ</a>
                     </nav>
                     <div class="container">
                         ${html}
