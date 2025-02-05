@@ -5,11 +5,11 @@ const frontMatter = require('front-matter');
 
 async function build() {
     // Clear public directory
-    await fs.emptyDir('public');
+    await fs.emptyDir('docs');
     
     // Copy static assets if they exist
     if (await fs.pathExists('src/assets')) {
-        await fs.copy('src/assets', 'public');
+        await fs.copy('src/assets', 'docs');
     }
     
     // Process markdown files
@@ -65,7 +65,7 @@ async function build() {
                 </html>
             `;
             
-            const outputPath = path.join('public', file.replace('.md', '.html'));
+            const outputPath = path.join('docs', file.replace('.md', '.html'));
             await fs.outputFile(outputPath, htmlContent);
         }
     }
